@@ -45,3 +45,5 @@ group :development do
   gem 'spring'
 end
 
+gem 'httparty', '~> 0.14.0' # for web requests
+gem 'awesome_print'

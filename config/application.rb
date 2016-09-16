@@ -29,5 +29,10 @@ module Rss
       g.javascripts     false
       g.test_framework  false
     end
+
+    # Add all subdirectories in app/lib (note: not lib)
+    Dir.glob(Rails.root.join('app/lib/**/')).each do |folder|
+      config.autoload_paths << folder
+    end
   end
 end
