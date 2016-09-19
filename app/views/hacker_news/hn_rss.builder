@@ -12,6 +12,7 @@ xml.rss :version => '2.0', 'xmlns:atom' => 'http://www.w3.org/2005/Atom' do
       xml.item do
         xml.title item[:title]
         xml.link item[:link]
+        xml.description item[:comments]
         xml.comments item[:comments]
         xml.guid({"isPermaLink" => "false"}, item[:guid])
         xml.pubDate item[:pubDate]
