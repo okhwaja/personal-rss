@@ -1,16 +1,24 @@
 class HackerNewsController < ApplicationController
-  helper HackerNewsHelper
-  def index
-    data = [
-      {
-        one: 'two',
-        three: 'four'
-      },
-      {
-        one: 'two',
-        three: 'four'
-      }
-    ]
-    render xml: data
+  def hn_popular_stories
+    hn_data = HnAlgolia.popular_daily_stories['hits']
+    @items = hn_data.map { |x| hn_item_to_rss_entry(x) }
+    render 'hn_rss'
+  end
+
+  def hn_popular_show
+    hn_data = HnAlgolia.popular_show_hns['hits']
+    @items = hn_data.map { |x| hn_item_to_rss_entry(x) }
+    render 'hn_rss'
+  end
+
+  def hn_item_to_rss_entry(item)
+    {
+      title: item['title'],
+      link: item['url'],
+      author: item['author'],
+      comments: "https://news.ycombinator.com/item?id=#{item['objectID']}",
+      guid: item['objectID'],
+      pubDate: item['created_at']
+    }
   end
 end
