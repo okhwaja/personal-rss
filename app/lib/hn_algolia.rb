@@ -6,17 +6,27 @@ class HnAlgolia
 
   debug_output
 
-  def self.top_stories_of_day(options={})
-    query = options.empty? ? default_query : options
-    byebug
+  def self.popular_daily_stories
+    query = {
+      tags: 'story',
+      page: 0,
+      numericFilters: [
+        "created_at_i > #{(Time.now - 24.hours).to_i}",
+        "points > 100"
+      ].join(',')
+    }
     get('/', query: query)
-    # get('/')
   end
 
-  def self.default_query
-    {
-      tags: 'story',
-      page: 0
+  def self.popular_show_hns
+    query = {
+      tags: 'show_hn',
+      page: 0,
+      numericFilters: [
+        "created_at_i > #{(Time.now - 24.hours).to_i}",
+        "points > 25"
+      ].join(',')
     }
+    get('/', query: query)
   end
 end
