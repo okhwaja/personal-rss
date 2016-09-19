@@ -17,7 +17,7 @@ class HackerNewsController < ApplicationController
       link: item['url'],
       author: item['author'],
       comments: "https://news.ycombinator.com/item?id=#{item['objectID']}",
-      guid: item['objectID'],
+      guid: "#{item['objectID']}_#{item['author']}",
       pubDate: DateTime.parse(item['created_at']).to_s(:rfc822)
     }
   end
