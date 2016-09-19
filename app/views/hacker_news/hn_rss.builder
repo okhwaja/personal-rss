@@ -11,7 +11,6 @@ xml.rss :version => '2.0' do
       xml.item do
         xml.title item[:title]
         xml.link item[:link]
-        xml.author item[:author]
         xml.comments item[:comments]
         xml.guid({"isPermaLink" => "false"}, item[:guid])
         xml.pubDate item[:pubDate]
