@@ -13,7 +13,7 @@ xml.rss :version => '2.0' do
         xml.link item[:link]
         xml.author item[:author]
         xml.comments item[:comments]
-        xml.guid item[:guid]
+        xml.guid({"isPermaLink" => "false"}, item[:guid])
         xml.pubDate item[:pubDate]
       end
     end
