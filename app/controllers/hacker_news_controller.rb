@@ -12,13 +12,19 @@ class HackerNewsController < ApplicationController
   end
 
   def hn_item_to_rss_entry(item)
+    ch = comment_html(item)
     {
       title: item['title'],
       link: item['url'],
       author: item['author'],
-      comments: "https://news.ycombinator.com/item?id=#{item['objectID']}",
+      comments: ch,
       guid: "#{item['objectID']}_#{item['author']}",
       pubDate: DateTime.parse(item['created_at']).to_s(:rfc822)
     }
+  end
+
+  def comment_html(item)
+    "<p>#{item['points']} points</p>" + 
+      "<a href='https://news.ycombinator.com/item?id=#{item['objectID']}'>#{item['num_comments']} comments</a>"
   end
 end
