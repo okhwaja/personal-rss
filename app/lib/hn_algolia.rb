@@ -4,8 +4,6 @@ class HnAlgolia
   base_uri 'hn.algolia.com/api/v1/search_by_date'
   format :json
 
-  debug_output
-
   def self.popular_daily_stories
     query = {
       tags: 'story',
