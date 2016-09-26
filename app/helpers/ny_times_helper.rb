@@ -4,7 +4,6 @@ module NyTimesHelper
     page_url = email_html.at_css('a.large-headline').attributes['href'].value
     page_html = Nokogiri::HTML(HTTParty.get(page_url).body)
 
-    byebug
     title = page_html.at_css("h1[itemprop='headline']")
     title_text = title.children.first.text
 
@@ -19,11 +18,20 @@ module NyTimesHelper
       .at_css("meta[itemprop='description']")
       .attributes['content'].text
 
+    guid = page_html
+      .at_css("meta[itemprop='identifier']")
+      .attributes['content'].text + '_nytimes'
+
     {
-      title: title_text,
+      title: title,
       description: description,
-      author: 
-      pubDate: DateTime.parse(dateModified).to_s(:rfc822)
+      link: page_url.split('?').first,
+      pubDate: DateTime.parse(dateModified).to_s(:rfc822),
+      guid: guid
     }
+  end
+
+  def feed_url
+    File.join('https://personal-rss.herokuapp.com', request.path)
   end
 end

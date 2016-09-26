@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'popular_hn' => 'hacker_news#hn_popular_stories'
   get 'popular_show_hn' => 'hacker_news#hn_popular_show'
-  get 'nyt_daily_brief' => 'ny_times#daily_brief'
+  get 'nyt_daily_brief' => 'ny_times#daily_briefing'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
