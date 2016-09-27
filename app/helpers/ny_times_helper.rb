@@ -14,16 +14,12 @@ module NyTimesHelper
       .at_css("meta[itemprop='description']")
       .attributes['content'].text
 
-    title = page_html
-      .at_css("meta[itemprop='description']")
-      .attributes['content'].text
-
     guid = page_html
       .at_css("meta[itemprop='identifier']")
       .attributes['content'].text + '_nytimes'
 
     {
-      title: title,
+      title: title_text,
       description: description,
       link: page_url.split('?').first,
       pubDate: DateTime.parse(dateModified).to_s(:rfc822),
