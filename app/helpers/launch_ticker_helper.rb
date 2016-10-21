@@ -17,7 +17,7 @@ module LaunchTickerHelper
 
     unless evening_version == LaunchTicker::Unavailable
       res << {
-        title: "#{date.strftime('%a, %m %b %Y')}: Evening Edition",
+        title: "#{date.strftime('%a, %b %d %Y')}: Evening Edition",
         description: 'Daily Startup News by LaunchTicker',
         link: evening_version,
         pubDate: (date + 17.hours - Time.zone_offset('PST')).to_s(:rfc822), # 5pm pacific
