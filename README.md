@@ -4,7 +4,7 @@ A dynamic RSS generator for a few content sources I wanted that lack RSS functio
 
 Contributions/Suggestions welcome!
 
-![demo](http://i.imgur.com/kQ2UhT3.gif)
+![demo](http://i.imgur.com/Z794839.gif)
 
 ## Try it out!
 
