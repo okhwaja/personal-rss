@@ -48,3 +48,4 @@ end
 
 gem 'httparty', '~> 0.14.0' # for web requests
 gem 'awesome_print'
+gem 'dotenv-rails', :groups => [:development, :test] # for environment variables

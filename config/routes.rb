@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'nyt_daily_brief' => 'ny_times#daily_briefing'
   get 'launch_ticker_daily' => 'launch_ticker#daily'
   get 'crunchbase_daily' => 'crunchbase#daily'
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

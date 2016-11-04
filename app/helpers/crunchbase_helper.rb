@@ -19,8 +19,4 @@ module CrunchbaseHelper
       guid: "crunchbase_daily_#{published_date}"
     }
   end
-
-  def feed_url
-    File.join('https://personal-rss.herokuapp.com', request.path)
-  end
 end
