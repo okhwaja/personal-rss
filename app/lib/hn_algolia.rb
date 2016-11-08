@@ -10,7 +10,7 @@ class HnAlgolia
       page: 0,
       numericFilters: [
         "created_at_i > #{(Time.now - 24.hours).to_i}",
-        "points > 100"
+        "points > 150"
       ].join(',')
     }
     get('/', query: query)
